@@ -21,7 +21,7 @@ jobs:
 
       - name: Test HTTP response
         run: |
-          STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000)
+          STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/generate-raspiska)
           if [ "$STATUS_CODE" -ne 200 ]; then
             echo "Expected HTTP status 200 but got $STATUS_CODE"
             exit 1
@@ -29,6 +29,7 @@ jobs:
           echo "HTTP status 200 received as expected"
 
       - name: Stop and remove Docker container
+        if: always()
         run: |
           docker stop my-app-container
           docker rm my-app-container
