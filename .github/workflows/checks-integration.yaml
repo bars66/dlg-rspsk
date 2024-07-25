@@ -21,11 +21,16 @@ jobs:
 
       - name: Test HTTP response
         run: |
-          sleep 10 
-          curl -vvv -o /dev/null http://127.0.0.1:3000/
+          STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/generate-raspiska)
+          if [ "$STATUS_CODE" -ne 200 ]; then
+            echo "Expected HTTP status 200 but got $STATUS_CODE"
+            exit 1
+          fi
+          echo "HTTP status 200 received as expected"
 
       - name: Stop and remove Docker container
         if: always()
         run: |
           docker stop dlg-rspk-test-container
           docker rm dlg-rspk-test-container
+
