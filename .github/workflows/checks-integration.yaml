@@ -21,7 +21,6 @@ jobs:
 
       - name: Test HTTP response
         run: |
-#          сделать нормальный хелзчек вместо костыля
           sleep 10 
           curl -vvv -o /dev/null http://127.0.0.1:3000/
 
