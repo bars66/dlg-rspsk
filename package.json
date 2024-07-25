@@ -1,0 +1,10 @@
+{
+  "name": "dolg-raspiska-creator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "fastify": "^4.28.1",
+    "jimp": "^0.22.12"
+  }
+}
