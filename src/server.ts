@@ -5,6 +5,12 @@ const fastify = Fastify({
   logger: true
 })
 
+const HTTP_NOT_FOUND = 404;
+
+fastify.get('/', function handler (request, reply) {
+  reply.status(HTTP_NOT_FOUND);
+  return 'not found';
+})
 
 fastify.get('/generate-raspiska', async function handler (request: FastifyRequest<{
   Querystring: {id?: string, gr?: string, reason?: string, date?: string}}
