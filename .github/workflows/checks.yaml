@@ -15,7 +15,5 @@ jobs:
           node-version: '20.x'
       - name: Install deps
         run: npm ci
-      - name: Build and check types
-        run: npm run build
       - name: Check types
         run: npm run tsc
