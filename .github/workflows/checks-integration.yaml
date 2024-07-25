@@ -26,5 +26,5 @@ jobs:
       - name: Stop and remove Docker container
         if: always()
         run: |
-          docker stop my-app-container
-          docker rm my-app-container
+          docker stop dlg-rspk-test-container
+          docker rm dlg-rspk-test-container
