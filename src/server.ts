@@ -5,6 +5,7 @@ const fastify = Fastify({
   logger: true
 })
 
+
 fastify.get('/generate-raspiska', async function handler (request: FastifyRequest<{
   Querystring: {id?: string, gr?: string, reason?: string, date?: string}}
 >, reply) {
