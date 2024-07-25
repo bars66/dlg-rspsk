@@ -1,5 +1,4 @@
-const Jimp = require('jimp');
-
+import Jimp from 'jimp';
 const TEMPLATE_FILE_NAME = './template.png';
 
 const VOLLKORN_BIG = './fonts/vollkorn-big/vollkorn.fnt'
@@ -11,7 +10,7 @@ const TEXT_LEFT_X = 60;
 const TEXT_LEFT_Y = 270;
 const TEXT_WIDTH = 650;
 
-async function createDlgRaspiska(id, gr, reason, date) {
+export async function createDlgRaspiska(id: string | number, gr: string, reason: string, date: string) {
   const txt = `Выдано гр. ${gr} о том, что данный гражданин в срок до ${date} должен исполнить:\n\n${reason}`
   const image = await Jimp.read(TEMPLATE_FILE_NAME);
   const fontBig = await Jimp.loadFont(VOLLKORN_BIG);
@@ -20,8 +19,4 @@ async function createDlgRaspiska(id, gr, reason, date) {
   image.print(fontText, TEXT_LEFT_X, TEXT_LEFT_Y, txt, TEXT_WIDTH);
 
   return image.getBufferAsync(Jimp.MIME_PNG);
-}
-
-module.exports = {
-  createDlgRaspiska
 }

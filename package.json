@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "tsc": "tsc"
+  },
   "dependencies": {
     "fastify": "^4.28.1",
     "jimp": "^0.22.12"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
   }
 }

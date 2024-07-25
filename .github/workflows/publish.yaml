@@ -1,11 +1,13 @@
 name: Publish
 
 on:
-  push:
+  pull_request:
+    types:
+      - closed
 
 jobs:
   publish:
-#    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     environment: master
     permissions:
