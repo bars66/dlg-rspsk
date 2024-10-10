@@ -11,7 +11,7 @@ const TEXT_LEFT_Y = 270;
 const TEXT_WIDTH = 650;
 
 export async function createDlgRaspiska(id: string | number, gr: string, reason: string, date: string) {
-  const txt = `Выдано гр. ${gr} о том, что данный гражданин в срок до ${date} должен исполнить:\n\n${reason}`
+  const txt = `Выдано гр. ${gr} о том, что данный гражданин (-ка) в срок до ${date} должен исполнить:\n\n${reason}`
   const image = await Jimp.read(TEMPLATE_FILE_NAME);
   const fontBig = await Jimp.loadFont(VOLLKORN_BIG);
   const fontText = await Jimp.loadFont(VOLLKORN_TEXT);
